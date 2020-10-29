@@ -6,7 +6,9 @@ description = document.querySelector('.description');
 title = document.querySelector('h3');
 dateDisplay = document.querySelector("#date");
 dateInput = document.querySelector("#dateInput");
-submitForm = document.querySelector(".dateInput")
+submitForm = document.querySelector(".dateInput");
+iframe = document.querySelector("iframe");
+
 
 submitForm.addEventListener('submit',fetchApod)
 
@@ -19,8 +21,15 @@ fetch(baseURL+ key)
         console.log(json);
         title.innerText = `${json.title}`
         dateDisplay.innerText =`date: ${json.date}`;
-        let spaceImage = json.url;
-        imageShown.src = spaceImage
+        if(json.media_type == "video"){
+            imageShown.style.display = "none";
+            iframe.src = json.url;
+            iframe.style.display = "inline-block";
+        } else {
+            iframe.style.display = "none";
+            imageShown.src = json.url;
+            imageShown.style.display = "inline-block";
+        }
         description.innerText = json.explanation;
         
         // return json
@@ -37,8 +46,15 @@ fetch(baseURL+ key + '&date=' + dateInput.value)
         console.log(json);
         title.innerText = `${json.title}`
         dateDisplay.innerText =`date: ${json.date}`;
-        let spaceImage = json.url;
-        imageShown.src = spaceImage
+        if(json.media_type == "video"){
+            imageShown.style.display = "none";
+            iframe.src = json.url;
+            iframe.style.display = "inline-block";
+        } else {
+            iframe.style.display = "none";
+            imageShown.src = json.url;
+            imageShown.style.display = "inline-block";
+        }
         description.innerText = json.explanation;
         
         // return json
