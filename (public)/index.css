@@ -25,13 +25,30 @@ body{
     margin-bottom: 3%;
     margin-top: 3%
 }
+@media screen and (max-width: 900px){
+    iframe{
+        width: 80%;
+        height: 400px;
+        text-align: center;
+    }
+}
 
-iframe{
-    width: 889px;
-    height: 500px;
-    text-align: center;
+@media screen and (min-width: 902px){
+    iframe{
+        width: 889px;
+        height:500px;
+        text-align: center;
+    }
 }
 
 img{
  display: inline-block;
+}
+
+button{
+    border-radius: 13%;
+}
+
+input{
+    border-radius: 10%;
 }
